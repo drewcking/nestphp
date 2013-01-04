@@ -1,7 +1,7 @@
 <?php
 namespace nest;
 
-define('DOCROOT',     '/' . trim($_SERVER['DOCUMENT_ROOT'], '/'));
+define('DOCROOT',     str_replace($_SERVER['SCRIPT_NAME'], '', $_SERVER['SCRIPT_FILENAME']));
 define('METHOD',      strtolower($_SERVER['REQUEST_METHOD']));
 define('ISXHR',       isset($_SERVER['HTTP_X_REQUESTED_WITH']) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'));
 define('DEBUG',       isset($_SERVER['_nest']['debug']) && !empty($_SERVER['_nest']['debug']));
