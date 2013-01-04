@@ -9,14 +9,14 @@ define('BEFORE_FILE', isset($_SERVER['_nest']['before']) ? $_SERVER['_nest']['be
 define('AFTER_FILE',  isset($_SERVER['_nest']['after'])  ? $_SERVER['_nest']['after']: 'after.php');
 
 function run() {
-    $nest = [
+    $nest = array(
         'before'        => isset($_SERVER['_nest']['before']) ? $_SERVER['_nest']['before']: 'before.php',
         'after'         => isset($_SERVER['_nest']['after'])  ? $_SERVER['_nest']['after']: 'after.php',
         'script_dir'    => dirname($_SERVER['SCRIPT_FILENAME']),
         'script'        => $_SERVER['SCRIPT_NAME'],
         'filter_files'  => array(), // array of scripts that contain filters (before's and after's)
         'filters'       => array()  // array of closures that will be called in the order they were defined
-    ];
+    );
 
     $GLOBALS['_nest'] = &$nest;
 
